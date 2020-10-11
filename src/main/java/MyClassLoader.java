@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class CustomClassLoader extends ClassLoader {
+public class MyClassLoader extends ClassLoader {
 
     @Override
     public Class findClass(String name) throws ClassNotFoundException {
@@ -14,7 +14,7 @@ public class CustomClassLoader extends ClassLoader {
     }
 
     private byte[] loadClassFromFile(String fileName) throws IOException {
-        InputStream inputStream = new FileInputStream("D:\\Git_projects\\myClassLoader\\src\\main\\java\\ProductList.class");
+        InputStream inputStream = new FileInputStream(fileName+".class");
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
         int nextValue = 0;
         while ( (nextValue = inputStream.read()) != -1 ) {
